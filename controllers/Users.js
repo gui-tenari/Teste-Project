@@ -12,7 +12,8 @@ const createUser = async (req, res, next) => {
     const newUser = await userServices.createUser(newUserInfo);
     return res.status(200).json(newUser);
   } catch (error) {
-    if (error.code) {
+    if (error.message) {
+      error.code = 409;
       return next(error);
     }
     console.log(error.message);

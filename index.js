@@ -1,12 +1,15 @@
 const express = require('express');
 const BodyParser = require('body-parser');
-const userRouter = require('./Routes/UserRoutes');
+
+const userRouter = require('./routes/UserRoutes');
+const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
 app.use(BodyParser.json());
 
 app.use('/user', userRouter);
+app.use(errorHandler);
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
