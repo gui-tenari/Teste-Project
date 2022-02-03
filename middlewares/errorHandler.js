@@ -1,9 +1,12 @@
+const statusCodes = require('../dictionary/statusCode');
+
 const errorHandler = (err, req, res, _next) => {
-  const { message, code } = err;
-  if (code) {
-    return res.status(code).json({ message });
+  const { message, status } = err;
+  if (status) {
+    return res.status(statusCodes[status]).json({ message });
   }
-  return res.status(500).json({ message: 'something went wrong' });
+  console.log(message);
+  return res.status(statusCodes.serverError).json({ message: 'something went wrong' });
 };
 
 module.exports = errorHandler;

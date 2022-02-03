@@ -1,4 +1,4 @@
-const userServices = require('../sevices/index');
+const userServices = require('../services/index');
 
 const createUser = async (req, res, next) => {
   try {
@@ -12,12 +12,7 @@ const createUser = async (req, res, next) => {
     const newUser = await userServices.createUser(newUserInfo);
     return res.status(200).json(newUser);
   } catch (error) {
-    if (error.message) {
-      error.code = 409;
-      return next(error);
-    }
-    console.log(error.message);
-    return res.status(500).json({ message: 'something went wrong' });
+    next(error);
   }
 };
 
