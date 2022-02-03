@@ -6,7 +6,7 @@ const User = (sequelize, DataTypes) => {
     image: DataTypes.STRING,
   },
   {
-    timestamp: false,
+    timestamps: false,
   });
 
   return newUser;
