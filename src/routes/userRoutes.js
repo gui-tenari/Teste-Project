@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { createUser } = require('../controllers/index');
+const { createUser } = require('../controllers/users/index');
 const userInfoValidation = require('../middlewares/userInfoValidation');
 
 const userRouter = express.Router();

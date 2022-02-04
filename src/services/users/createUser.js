@@ -1,6 +1,6 @@
-const { User } = require('../models');
-const errorConstructor = require('../helpers/errorConstructor');
-const createToken = require('./Token/createToken');
+const { User } = require('../../models');
+const errorConstructor = require('../../helpers/errorConstructor');
+const createToken = require('../token/createToken');
 
 const createUser = async (userData) => {
   const { email, displayName } = userData;

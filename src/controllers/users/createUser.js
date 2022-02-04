@@ -1,5 +1,5 @@
-const userServices = require('../services/index');
-const statusCode = require('../dictionary/statusCode');
+const userServices = require('../../services/users/index');
+const statusCode = require('../../dictionary/statusCode');
 
 const createUser = async (req, res, next) => {
   try {
