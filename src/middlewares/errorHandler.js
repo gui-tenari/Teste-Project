@@ -5,7 +5,8 @@ const errorHandler = (err, req, res, _next) => {
   if (status) {
     return res.status(statusCodes[status]).json({ message });
   }
-  console.log(message);
+  console.log(err);
+  console.log({ message });
   return res.status(statusCodes.serverError).json({ message: 'something went wrong' });
 };
 
