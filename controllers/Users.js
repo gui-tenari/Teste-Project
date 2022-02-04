@@ -1,4 +1,5 @@
 const userServices = require('../services/index');
+const statusCode = require('../dictionary/statusCode');
 
 const createUser = async (req, res, next) => {
   try {
@@ -9,8 +10,8 @@ const createUser = async (req, res, next) => {
       password,
       image,
     };
-    const newUser = await userServices.createUser(newUserInfo);
-    return res.status(200).json(newUser);
+    const token = await userServices.createUser(newUserInfo);
+    return res.status(statusCode.created).json({ token });
   } catch (error) {
     next(error);
   }
