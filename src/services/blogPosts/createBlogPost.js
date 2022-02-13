@@ -16,6 +16,8 @@ const createBlogPost = async (blogPost, token) => {
   const { title, content, categoryIds, published, updated } = blogPost;
   await validateCategories(categoryIds);
   const newBlogPost = await BlogPost.create({ title, content, published, updated, userId: id });
+  // Ajuda do Lucio
+  await newBlogPost.addCategory(categoryIds);
   return newBlogPost;
 };
 
