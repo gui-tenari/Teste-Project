@@ -22,7 +22,10 @@ module.exports = {
         allowNull: false,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
-        references: { model: "Users", key: 'id'}
+        references: { 
+          model: "Users",
+          key: 'id'
+        }
       },
       published: {
         allowNull: false,
